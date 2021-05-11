@@ -39,3 +39,13 @@ enum NetworkError: Error {
         }
     }
 }
+
+// MARK: - UserDetailsSection
+enum UserDetailsSection: String {
+    case name = "Name"
+    case addressDetails = "Address Details"
+    case companyDetails = "Company Details"
+    case phone = "phone"
+    case website = "website"
+    case favourite = "favourite"
+}

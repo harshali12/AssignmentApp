@@ -48,15 +48,15 @@ class UserListingViewController: BaseViewController {
 //MARK:- UITableViewDataSource , UITableViewDelegate Method
 extension UserListingViewController : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userVm.getUserListCount() 
+        return userVm.getUserListCount() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserDetailsTableViewCell.reuseIdentifier) as! UserDetailsTableViewCell
         cell.titleLbl.isHidden = true
         cell.favBtn.isSelected
-            = userVm.isUserFavourite(index: indexPath.row)
-        cell.descriptionLbl.text = "\(ScreenText.kName.rawValue)\(userVm.getName(index: indexPath.row))\n\(ScreenText.kPhone.rawValue)\(userVm.getUserPhone(index: indexPath.row))\n\(ScreenText.kWebsite.rawValue)\(userVm.getUserWebsite(index: indexPath.row))\n\(ScreenText.kCompanyName.rawValue)\(userVm.getCompanyName(index: indexPath.row))"
+            = userVm.isUserFavourite(index: indexPath.row) ?? false
+        cell.descriptionLbl.text = "\(ScreenText.kName.rawValue)\(String(describing: userVm.getName(index: indexPath.row) ?? ""))\n\(ScreenText.kPhone.rawValue)\(String(describing: userVm.getUserPhone(index: indexPath.row) ?? ""))\n\(ScreenText.kWebsite.rawValue)\(String(describing: userVm.getUserWebsite(index: indexPath.row) ?? ""))\n\(ScreenText.kCompanyName.rawValue)\(String(describing: userVm.getCompanyName(index: indexPath.row) ?? ""))"
         cell.descriptionLbl.attributedText =  cell.descriptionLbl.text?.attributedStringWithColor([ScreenText.kName.rawValue,ScreenText.kPhone.rawValue,ScreenText.kWebsite.rawValue,ScreenText.kCompanyName.rawValue], color: .black)
         return cell
     }

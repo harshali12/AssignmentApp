@@ -26,10 +26,9 @@ extension UserViewModel {
         service.fetchUserList { result in
             switch result {
             case .success(let response):
-                guard let usersList = response as? [UserModel] else {
-                    return
+                if let usersList = response as? [UserModel]  {
+                    self.userList = usersList
                 }
-                self.userList = usersList
                 completion(.success(true))
             case .failure(let error):
                 completion(.failure(error))
@@ -40,27 +39,27 @@ extension UserViewModel {
 
 //MARK:- Data Operation
 extension UserViewModel {
-    func getUserListCount() -> Int {
+    func getUserListCount() -> Int? {
         userList.count
     }
     
-    func getUserName(index: Int) -> String {
-        return userList[index].username ?? ""
+    func getUserName(index: Int) -> String? {
+        return userList[index].username
     }
     
-    func getName(index: Int) -> String {
-        return userList[index].name ?? ""
+    func getName(index: Int) -> String? {
+        return userList[index].name
     }
     
-    func getUserPhone(index: Int) -> String {
-        return userList[index].phone ?? ""
+    func getUserPhone(index: Int) -> String? {
+        return userList[index].phone
     }
     
-    func getUserWebsite(index: Int) -> String {
-        return userList[index].website ?? ""
+    func getUserWebsite(index: Int) -> String? {
+        return userList[index].website
     }
     
-    func isUserFavourite(index: Int) -> Bool {
+    func isUserFavourite(index: Int) -> Bool? {
         return userList[index].isFavourate
     }
     
@@ -68,47 +67,47 @@ extension UserViewModel {
         userList[index].isFavourate = flag
     }
     
-    func getUserStreet(index: Int) -> String {
-        return userList[index].address?.street ?? ""
+    func getUserStreet(index: Int) -> String? {
+        return userList[index].address?.street
     }
     
-    func getUserSuite(index: Int) -> String {
-        return userList[index].address?.suite ?? ""
+    func getUserSuite(index: Int) -> String? {
+        return userList[index].address?.suite
     }
     
-    func getUserCity(index: Int) -> String {
-        return userList[index].address?.city ?? ""
+    func getUserCity(index: Int) -> String? {
+        return userList[index].address?.city
     }
     
-    func getUserZipcode(index: Int) -> String {
-        return userList[index].address?.zipcode ?? ""
+    func getUserZipcode(index: Int) -> String? {
+        return userList[index].address?.zipcode
     }
     
-    func getUserlat(index: Int) -> String {
-        return userList[index].address?.geo?.lat ?? ""
+    func getUserlat(index: Int) -> String? {
+        return userList[index].address?.geo?.lat
     }
     
-    func getUserlng(index: Int) -> String {
-        return userList[index].address?.geo?.lng ?? ""
+    func getUserlng(index: Int) -> String? {
+        return userList[index].address?.geo?.lng
     }
     
-    func getCompanyName(index: Int) -> String {
-        return userList[index].company?.name ?? ""
+    func getCompanyName(index: Int) -> String? {
+        return userList[index].company?.name
     }
     
-    func getCompanyCatchPhrase(index: Int) -> String {
-        return userList[index].company?.catchPhrase ?? ""
+    func getCompanyCatchPhrase(index: Int) -> String? {
+        return userList[index].company?.catchPhrase
     }
     
-    func getCompanyBs(index: Int) -> String {
-        return userList[index].company?.bs ?? ""
+    func getCompanyBs(index: Int) -> String? {
+        return userList[index].company?.bs 
     }
     
-    func getUserSectionCount() -> Int {
+    func getUserSectionCount() -> Int? {
         return userSections.count
     }
     
-    func getUserSectionTitle(index: Int) -> String {
+    func getUserSectionTitle(index: Int) -> String? {
         return userSections[index].rawValue
     }
     

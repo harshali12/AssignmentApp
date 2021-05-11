@@ -84,9 +84,9 @@ extension UserDetailsViewController : UITableViewDataSource , UITableViewDelegat
         case 0:
             cell.descriptionLbl.text = vm.getName(index: selectedIndex)
         case 1:
-            cell.descriptionLbl.text = "\(ScreenText.kStreet.rawValue)\(vm.getUserStreet(index: selectedIndex))\n\(ScreenText.kSuite.rawValue)\(vm.getUserSuite(index: selectedIndex))\n\(ScreenText.kCity.rawValue)\(vm.getUserCity(index: selectedIndex))\n\(ScreenText.kZipcode.rawValue)\(vm.getUserZipcode(index: selectedIndex))\n\(ScreenText.kLat.rawValue)\(vm.getUserlat(index: selectedIndex))\n\(ScreenText.kLng.rawValue)\(vm.getUserlng(index: selectedIndex))"
+            cell.descriptionLbl.text = "\(ScreenText.kStreet.rawValue)\(String(describing: vm.getUserStreet(index: selectedIndex) ?? ""))\n\(ScreenText.kSuite.rawValue)\(String(describing: vm.getUserSuite(index: selectedIndex) ?? ""))\n\(ScreenText.kCity.rawValue)\(vm.getUserCity(index: selectedIndex) ?? "")\n\(ScreenText.kZipcode.rawValue)\(String(describing: vm.getUserZipcode(index: selectedIndex) ?? ""))\n\(ScreenText.kLat.rawValue)\(String(describing: vm.getUserlat(index: selectedIndex) ?? ""))\n\(ScreenText.kLng.rawValue)\(String(describing: vm.getUserlng(index: selectedIndex) ?? "" ))"
         case 2:
-            cell.descriptionLbl.text = "\(ScreenText.kName.rawValue)\(vm.getCompanyName(index: selectedIndex))\n\(ScreenText.kPharse.rawValue)\(vm.getCompanyCatchPhrase(index: selectedIndex))\n\(ScreenText.kBs.rawValue)\(vm.getCompanyBs(index: selectedIndex))"
+            cell.descriptionLbl.text = "\(ScreenText.kName.rawValue)\(String(describing: vm.getCompanyName(index: selectedIndex) ?? ""))\n\(ScreenText.kPharse.rawValue)\(String(describing: vm.getCompanyCatchPhrase(index: selectedIndex) ?? ""))\n\(ScreenText.kBs.rawValue)\(String(describing: vm.getCompanyBs(index: selectedIndex) ?? ""))"
         case 3:
             cell.descriptionLbl.text = vm.getUserPhone(index: selectedIndex)
         default:

@@ -11,5 +11,5 @@ public  typealias anyDictArray = [String : anyDict]
 public  typealias anyDictString = [String : String]
 public typealias  anyParam = Any
 
-typealias CompletionHandler = (Result<Any, Error>) -> ()
+typealias CompletionHandler = (Result<Any?, Error>) -> ()
 typealias Completion = (Bool,String) -> ()

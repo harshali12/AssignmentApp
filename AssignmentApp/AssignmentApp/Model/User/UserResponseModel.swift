@@ -7,16 +7,6 @@
 
 import Foundation
 
-// MARK: - UserDetailsSection
-enum UserDetailsSection: String {
-    case name = "Name"
-    case addressDetails = "Address Details"
-    case companyDetails = "Company Details"
-    case phone = "phone"
-    case website = "website"
-    case favourite = "favourite"
-}
-
 // MARK: - UserModel
 struct UserModel:Codable {
     var id: Int?
@@ -39,11 +29,7 @@ struct UserModel:Codable {
         case website = "website"
         case company = "company"
     }
-    
-    init(){
-        
-    }
-    
+
     init(from decoder: Decoder) throws {
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -98,10 +84,6 @@ struct Address: Codable {
         case geo = "geo"
     }
     
-    init(){
-        
-    }
-    
     init(from decoder: Decoder) throws {
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -140,10 +122,6 @@ struct Geo: Codable {
         case lng = "lng"
     }
     
-    init(){
-        
-    }
-    
     init(from decoder: Decoder) throws {
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -169,10 +147,6 @@ struct Company: Codable {
         case name = "name"
         case catchPhrase = "catchPhrase"
         case bs = "bs"
-    }
-    
-    init(){
-        
     }
     
     init(from decoder: Decoder) throws {
